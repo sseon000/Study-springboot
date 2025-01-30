@@ -1,5 +1,6 @@
 package com.sh.studyspringboot;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -14,9 +15,16 @@ import org.springframework.stereotype.Component;
 @Order(1)
 public class SampleApplicationRunner implements ApplicationRunner {
 
+    @Value("${sseon.name}")
+    private String name;
+
+    @Value("${sseon.age}")
+    private int age;
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("foo : " + args.containsOption("foo"));
         System.out.println("bar : " + args.containsOption("bar"));
+        System.out.println("name : " + name);
     }
 }
