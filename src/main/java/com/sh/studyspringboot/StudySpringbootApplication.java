@@ -19,18 +19,13 @@ import java.io.PrintStream;
 @SpringBootApplication
 public class StudySpringbootApplication {
     public static void main(String[] args) {
-        /* 커스텀하기 위해 스프링애플리케이션 객체를 생성해서 run메서드 실행
-        SpringApplication.run(StudySpringbootApplication.class, args);
+        /**
+         * 커스텀하기 위해 스프링애플리케이션 객체를 생성해서 run메서드 실행
+         * SpringApplication.run(StudySpringbootApplication.class, args);
          */
-
-        // SpringApplicationBuilder 사용
-        // SpringApplication app = new SpringApplication(StudySpringbootApplication.class);
-        // 다중 컨텍스트를 관리하거나 특정 설정을 동적으로 조정해야 할 때 SpringApplicationBuilder 사용 고려
-        SpringApplicationBuilder builder = new SpringApplicationBuilder(StudySpringbootApplication.class);
-        builder.run(args);
-
-        // 배너 끄기
-        // app.setBannerMode(Banner.Mode.OFF);
+        SpringApplication app = new SpringApplication(StudySpringbootApplication.class);
+        app.addListeners(new SampleListener());
+        app.run(args);
 
         // 배너 커스텀하기
         /*
@@ -51,7 +46,19 @@ public class StudySpringbootApplication {
             out.println("Spring Boot Banner Custom");
             out.println("===================================");
         });
-        app.run(args);
+        */
+
+        // 배너 끄기
+        // app.setBannerMode(Banner.Mode.OFF);
+
+        /**
+         * SpringApplicationBuilder
+         * 다중 컨텍스트를 관리하거나 특정 설정을 동적으로 조정해야 할 때 SpringApplicationBuilder 사용 고려
+         */
+        // SpringApplicationBuilder 사용
+        /*
+        SpringApplicationBuilder builder = new SpringApplicationBuilder(StudySpringbootApplication.class);
+        builder.run(args);
          */
     }
 
