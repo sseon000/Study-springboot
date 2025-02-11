@@ -32,5 +32,6 @@ public class SampleApplicationRunner implements ApplicationRunner {
         System.out.println("foo : " + args.containsOption("foo"));
         System.out.println("bar : " + args.containsOption("bar"));
         System.out.println("name : " + sseonProperties.getName());
+        System.out.println("session : " + sseonProperties.getSessionTimeout());
     }
 }
